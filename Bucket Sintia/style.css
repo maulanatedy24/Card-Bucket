@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    font-family: 'Indie Flower', cursive !important;
+    background: #a8b5ee;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+::selection {
+    background: transparent;
+}
+
+h4 {
+    font-size: 26px;
+    line-height: 1;
+    font-family: 'Amatic SC', cursive !important;
+    color: #013243;
+    text-align: center;
+}
+
+.color1 {
+    color: #1bbc9b;
+}
+
+.color2 {
+    color: #c0392b;
+}
+
+/* Book Styling */
+.card {
+    color: #013243;
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    background: #d18dc8;
+    transform-style: preserve-3d;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.7s ease, box-shadow 0.7s ease;
+    margin: 0 auto;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Book Cover - Title and Flowers */
+.card .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #c03885; /* Pink background for the book cover */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    padding: 20px;
+    border-radius: 15px;
+    transform: translateZ(1px);
+    transition: transform 0.7s ease;
+    
+    /* Adding flower image as background */
+    background-image: url('bucket bunga.png'); /* Your flower image path */
+    background-position: center; /* Center the image */
+    background-size: cover; /* Ensure the image covers the entire space */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* Cover text */
+.card .cover h4 {
+    font-size: 32px;
+    font-family: 'Amatic SC', cursive !important;
+    color: #013243;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.card .cover .flowers {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #c0392b;
+    text-align: center;
+}
+
+/* Inside the Book */
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #ffffff;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+/* Transition to simulate the book opening */
+.card:hover .cover {
+    transform: translateX(-100%); /* Move the cover left to reveal the inside */
+}
+
+.card:hover .details {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Inside the Book Text Styling */
+.card .details h4 {
+    text-align: center;
+    margin: 0;
+    font-size: 22px;
+    color: #013243;
+}
+
+.card .details p {
+    font-family: 'Indie Flower', cursive;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+/* Additional text styling (for smaller text) */
+.card .details .small-text {
+    font-family: 'Indie Flower', cursive;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Styling for links inside the book */
+.card .details a {
+    font-family: 'Indie Flower', cursive;
+    font-size: 16px;
+    color: #1bbc9b;
+    text-decoration: none;
+}
+
+.card .details a:hover {
+    text-decoration: underline;
+}
+
+audio {
+    display: none;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    /* For tablets and smaller devices */
+    .card {
+        width: 90%;
+        height: 350px;
+    }
+
+    .card .cover h4 {
+        font-size: 28px;
+    }
+
+    .card .cover .flowers {
+        font-size: 20px;
+    }
+
+    .card .details h4 {
+        font-size: 20px;
+    }
+
+    .card .details p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* For smaller mobile devices */
+    .card {
+        width: 95%;
+        height: 300px;
+    }
+
+    .card .cover h4 {
+        font-size: 24px;
+    }
+
+    .card .cover .flowers {
+        font-size: 18px;
+    }
+
+    .card .details h4 {
+        font-size: 18px;
+    }
+
+    .card .details p {
+        font-size: 12px;
+    }
+}
